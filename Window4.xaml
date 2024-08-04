@@ -7,10 +7,10 @@
         mc:Ignorable="d"
         WindowStyle="None"
         Title="Window4" Height="450" Width="800">
-    <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Width="205" Height="200">
-        <TextBox x:Name="passBox" TextWrapping="Wrap" Text="" Width="205" Height="100" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#FFDA9191" Padding="20,20,0,0"/>
-        <Button x:Name="btnOk" Content="Ok" Width="100" Height="100" Margin="0,100,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Click="btnOk_Click"/>
-        <Button x:Name="btnCancel" Content="Cancel" Width="100" Height="100" Margin="105,100,0,0" VerticalAlignment="Top" Click="btnCancel_Click"/>
+    <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Width="205" Height="220">
+        <TextBox x:Name="passBox" TextWrapping="Wrap" Text="" Width="205" Height="100" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#FFDA9191" Padding="20,20,0,0" Margin="0,15,0,0"/>
+        <Button x:Name="btnOk" Content="Ok" Width="100" Height="100" Margin="0,120,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Click="btnOk_Click"/>
+        <Button x:Name="btnCancel" Content="Cancel" Width="100" Height="100" Margin="105,120,0,0" VerticalAlignment="Top" Click="btnCancel_Click"/>
 
     </Grid>
 </Window>

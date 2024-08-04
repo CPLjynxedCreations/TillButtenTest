@@ -10,9 +10,14 @@
             <ColumnDefinition Width="111*"/>
             <ColumnDefinition Width="49*"/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="btnItem1" Content="" Width="100" Height="100" Margin="10,19,0,0" Click="btnItem1_Click" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <ToggleButton x:Name="btnOldToggle" Content="Old Toggle Button" Width="100" Height="100" Margin="225,19,0,0" IsChecked="{Binding boolIsEdit}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Button x:Name="btnManage" Content="Manage" Width="100" Height="100" Margin="225,149,0,0" Click="btnManage_Click" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Button x:Name="btnItem1" Content="" Width="100" Height="100" Margin="10,20,0,0" Click="btnItem1_Click" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Button x:Name="btnItem2" Content="" Width="100" Height="100" Margin="10,130,0,0" Click="btnItem2_Click" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <ToggleButton x:Name="btnOldToggle" Content="Old Toggle Button" Width="100" Height="100" Margin="225,20,0,0" IsChecked="{Binding boolIsEdit}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Button x:Name="btnManage" Content="Manage" Width="100" Height="100" Margin="225,130,0,0" Click="btnManage_Click" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBlock x:Name="lbl1" TextWrapping="Wrap" Text="Item Name" Width="100" Height="50" Margin="380,44,75,356" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="10,15,0,0" FontWeight="Bold" Background="#FFF39F9F"/>
+        <TextBlock x:Name="lbl2" TextWrapping="Wrap" Text="Item Price" Width="100" Height="50" Margin="380,93,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="10,15,0,0" FontWeight="Bold" Background="#FFF39F9F"/>
+        <TextBlock x:Name="lblName" TextWrapping="Wrap" Text="" Width="100" Height="50" Margin="480,44,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="10,15,0,0" FontWeight="Bold" Grid.ColumnSpan="2" Background="#FFF39F9F"/>
+        <TextBlock x:Name="lblPrice" TextWrapping="Wrap" Text="" Width="100" Height="50" Margin="480,93,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="10,15,0,0" FontWeight="Bold" Grid.ColumnSpan="2" Background="#FFF39F9F"/>
 
     </Grid>
 </Window>

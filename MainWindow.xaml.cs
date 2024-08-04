@@ -22,15 +22,58 @@ namespace ButtenTest
         public bool boolIsEdit { get; set; }
         public bool canEdit;
         public string passWord = "1234";
+        public string itm1price;
+        public string itm2price;
+        public string name;
 
         public MainWindow()
         {
             InitializeComponent();
             this.DataContext = this;
             btnItem1.Style = (Style)Application.Current.Resources["Style2"];
+            btnItem2.Style = (Style)Application.Current.Resources["Style2"];
         }
 
         private void btnItem1_Click(object sender, RoutedEventArgs e)
+        {
+            //DONE FOR TOGGLE BUTTON WITH WFP PAFE CODE FOR ++BOOL++
+            /*if (boolIsEdit)
+            {
+
+            }*/
+            if (canEdit)
+            {
+                canEdit = false;
+                Window2 prompt = new Window2();
+                prompt.Owner = Application.Current.MainWindow;
+                prompt.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+                prompt.SizeToContent = SizeToContent.WidthAndHeight;
+                prompt.btnOk.Click += (sender, e) => { prompt.Close(); };
+                prompt.btnCancel.Click += (sender, e) => { prompt.Close(); };
+                prompt.boxItemName.Focus();
+                prompt.ShowDialog();
+                if (prompt.name != String.Empty)
+                {
+                    btnItem1.Content = prompt.name;
+                    itm1price = prompt.price;
+                    btnItem1.Style = (Style)Application.Current.Resources[prompt.style];
+                }
+                else
+                {
+                    btnItem1.Content = String.Empty;
+                    btnItem1.Style = (Style)Application.Current.Resources["Style2"];
+                }
+            }
+            else
+            {
+                if (btnItem1.Content != String.Empty)
+                {
+                    lblName.Text = Convert.ToString(btnItem1.Content);
+                    lblPrice.Text = itm1price;
+                }
+            }
+        }
+        private void btnItem2_Click(object sender, RoutedEventArgs e)
         {
             if (canEdit)
             {
@@ -39,56 +82,31 @@ namespace ButtenTest
                 prompt.Owner = Application.Current.MainWindow;
                 prompt.WindowStartupLocation = WindowStartupLocation.CenterOwner;
                 prompt.SizeToContent = SizeToContent.WidthAndHeight;
-                //prompt.Width = 1500;
-                //prompt.Height = 500;
                 prompt.btnOk.Click += (sender, e) => { prompt.Close(); };
                 prompt.btnCancel.Click += (sender, e) => { prompt.Close(); };
+                prompt.boxItemName.Focus();
                 prompt.ShowDialog();
                 if (prompt.name != String.Empty)
                 {
-                    btnItem1.Content = prompt.name;
-                    btnItem1.Style = (Style)Application.Current.Resources[prompt.style];
+                    btnItem2.Content = prompt.name;
+                    itm2price = prompt.price;
+                    btnItem2.Style = (Style)Application.Current.Resources[prompt.style];
                 }
                 else
                 {
-                    btnItem1.Content = String.Empty;
-                    btnItem1.Style = (Style)Application.Current.Resources["Style2"];
+                    btnItem2.Content = String.Empty;
+                    btnItem2.Style = (Style)Application.Current.Resources["Style2"];
                 }
             }
             else
             {
-                //add item to sale
-            }
-
-            //DONE FOR TOGGLE BUTTON WITH WFP PAFE CODE FOR BOOL
-            /*if (boolIsEdit)
-            {
-                Window2 prompt = new Window2();
-                prompt.Owner = Application.Current.MainWindow;
-                prompt.WindowStartupLocation = WindowStartupLocation.CenterOwner;
-                prompt.SizeToContent = SizeToContent.WidthAndHeight;
-                //prompt.Width = 1500;
-                //prompt.Height = 500;
-                prompt.button2.Click += (sender, e) => { prompt.Close(); };
-                prompt.button3.Click += (sender, e) => { prompt.Close(); };
-                prompt.ShowDialog();
-                if (prompt.name != String.Empty)
+                if (btnItem2.Content != String.Empty)
                 {
-                    btnItem1.Content = prompt.name;
-                    btnItem1.Style = (Style)Application.Current.Resources[prompt.style];
-                }
-                else
-                {
-                    btnItem1.Content = String.Empty;
-                    btnItem1.Style = (Style)Application.Current.Resources["Style2"];
+                    lblName.Text = Convert.ToString(btnItem2.Content);
+                    lblPrice.Text = itm2price;
                 }
             }
-            else
-            {
-                //add item to sale
-            }*/
         }
-
         private void btnManage_Click(object sender, RoutedEventArgs e)
         {
             Window4 prompt = new Window4();
@@ -97,6 +115,7 @@ namespace ButtenTest
             prompt.SizeToContent = SizeToContent.WidthAndHeight;
             prompt.btnOk.Click += (sender, e) => { prompt.Close(); };
             prompt.btnCancel.Click += (sender, e) => { prompt.Close(); };
+            prompt.passBox.Focus();
             prompt.ShowDialog();
             if (prompt.userInput == passWord)
             {
@@ -116,6 +135,5 @@ namespace ButtenTest
                 canEdit = true;
             }
         }
-            
     }
 }

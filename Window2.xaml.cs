@@ -21,6 +21,8 @@ namespace ButtenTest
     {
         public string style;
         public string name;
+        public string price;
+        //make int convert
 
         public Window2()
         {
@@ -32,13 +34,13 @@ namespace ButtenTest
         {
             style = "Style1";
             name = boxItemName.Text;
-            //name = "Product";
+            price = boxItemPrice.Text;
         }
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
             style = "Style2";
             name = String.Empty;
-            //name = "No Product";
+            price = String.Empty;
         }
     }
 }
