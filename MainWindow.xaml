@@ -8,6 +8,7 @@
     <Grid>
         <Button x:Name="button1" Content="" Width="100" Height="100" Margin="10,19,0,0" Click="button1_Click" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <ToggleButton x:Name="button4" Content="ToggleButton" Width="100" Height="100" Margin="225,19,475,315" IsChecked="{Binding boolIsEdit}"/>
+        <Button x:Name="button5" Content="Button" Width="100" Height="100" Margin="225,149,475,185" Click="button5_Click"/>
 
     </Grid>
 </Window>

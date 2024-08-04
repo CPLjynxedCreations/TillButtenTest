@@ -57,5 +57,10 @@ namespace ButtenTest
                 //add item to sale
             }
         }
+
+        private void button5_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
     }
 }
