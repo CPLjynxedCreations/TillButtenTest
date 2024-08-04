@@ -14,7 +14,6 @@ using System.Windows.Shapes;
 
 namespace ButtenTest
 {
-
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
@@ -23,18 +22,18 @@ namespace ButtenTest
         public MainWindow()
         {
             InitializeComponent();
+
             button1.Style = (Style)Application.Current.Resources["Style2"];
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
             Window2 prompt = new Window2();
-            prompt.Width = 1500;
-            prompt.Height = 500;
-            prompt.HorizontalAlignment = HorizontalAlignment.Center;
-            prompt.VerticalAlignment = VerticalAlignment.Center;
+            prompt.Owner = Application.Current.MainWindow;
+            prompt.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             prompt.SizeToContent = SizeToContent.WidthAndHeight;
-            prompt.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            //prompt.Width = 1500;
+            //prompt.Height = 500;
             prompt.button2.Click += (sender, e) => { prompt.Close(); };
             prompt.button3.Click += (sender, e) => { prompt.Close(); };
             prompt.ShowDialog();
