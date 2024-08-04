@@ -1,0 +1,14 @@
+﻿<Application x:Class="ButtenTest.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="MainWindow.xaml">
+
+    <Application.Resources>
+        <Style x:Key="Style1" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="SpringGreen"/>
+        </Style>
+        <Style x:Key="Style2" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="DarkSlateBlue"/>
+        </Style>
+    </Application.Resources>
+</Application>
