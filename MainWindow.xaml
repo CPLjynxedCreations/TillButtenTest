@@ -6,7 +6,8 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button x:Name="button1" Content="Color" Width="100" Height="100" Margin="10,19,0,0" Click="button1_Click" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Button x:Name="button1" Content="" Width="100" Height="100" Margin="10,19,0,0" Click="button1_Click" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <ToggleButton x:Name="button4" Content="ToggleButton" Width="100" Height="100" Margin="225,19,475,315" IsChecked="{Binding boolIsEdit}"/>
 
     </Grid>
 </Window>

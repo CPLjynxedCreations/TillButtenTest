@@ -5,11 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ButtenTest"
         mc:Ignorable="d"
-        Title="Window2" Height="300" Width="600">
+        Title="Window2" Height="300" Width="600"
+        WindowStyle="None">
     <Grid>
         <Button x:Name="button2" Content="Ok" Width="100" Height="100" Click="button2_Click" Margin="0,79,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Button x:Name="button3" Content="Cancel" Width="100" Height="100" Click="button3_Click" Margin="120,79,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <TextBox x:Name="boxName" HorizontalAlignment="Left" Height="69" TextWrapping="Wrap" VerticalAlignment="Top" Width="220" Background="#FFFFD6D6"/>
+        <TextBox x:Name="boxName" Padding="10,30,10,10" HorizontalAlignment="Left" Height="69" TextWrapping="Wrap" VerticalAlignment="Top" Width="220" Background="#FFFFD6D6"/>
 
     </Grid>
 </Window>
