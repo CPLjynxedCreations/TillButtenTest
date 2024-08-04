@@ -5,10 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Button x:Name="button1" Content="" Width="100" Height="100" Margin="10,19,0,0" Click="button1_Click" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <ToggleButton x:Name="button4" Content="ToggleButton" Width="100" Height="100" Margin="225,19,475,315" IsChecked="{Binding boolIsEdit}"/>
-        <Button x:Name="button5" Content="Button" Width="100" Height="100" Margin="225,149,475,185" Click="button5_Click"/>
+    <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Width="800" Height="450">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="111*"/>
+            <ColumnDefinition Width="49*"/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="btnItem1" Content="" Width="100" Height="100" Margin="10,19,0,0" Click="btnItem1_Click" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <ToggleButton x:Name="btnOldToggle" Content="Old Toggle Button" Width="100" Height="100" Margin="225,19,0,0" IsChecked="{Binding boolIsEdit}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Button x:Name="btnManage" Content="Manage" Width="100" Height="100" Margin="225,149,0,0" Click="btnManage_Click" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

@@ -15,30 +15,28 @@ using System.Windows.Shapes;
 namespace ButtenTest
 {
     /// <summary>
-    /// Interaction logic for Window2.xaml
+    /// Interaction logic for Window4.xaml
     /// </summary>
-    public partial class Window2 : Window
+    public partial class Window4 : Window
     {
-        public string style;
-        public string name;
+        public string userInput;
 
-        public Window2()
+        public Window4()
         {
             InitializeComponent();
-            MainWindow mainWindow = new MainWindow();
         }
 
         private void btnOk_Click(object sender, RoutedEventArgs e)
         {
-            style = "Style1";
-            name = boxItemName.Text;
-            //name = "Product";
+            if (userInput != String.Empty)
+            {
+                userInput = passBox.Text;
+            }
         }
+
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
-            style = "Style2";
-            name = String.Empty;
-            //name = "No Product";
+            userInput = String.Empty;
         }
     }
 }
