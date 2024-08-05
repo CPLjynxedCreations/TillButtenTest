@@ -5,11 +5,11 @@
              ShutdownMode="OnMainWindowClose">
 
     <Application.Resources>
-        <Style x:Key="Style1" TargetType="{x:Type Button}">
-            <Setter Property="Background" Value="SpringGreen"/>
-        </Style>
-        <Style x:Key="Style2" TargetType="{x:Type Button}">
-            <Setter Property="Background" Value="DarkSlateBlue"/>
-        </Style>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/btnItemDictionary.xaml"/>
+                <ResourceDictionary Source="/btnEmptyDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

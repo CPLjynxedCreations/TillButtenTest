@@ -32,13 +32,13 @@ namespace ButtenTest
 
         private void btnOk_Click(object sender, RoutedEventArgs e)
         {
-            style = "Style1";
+            style = "btnItemStyle";
             name = boxItemName.Text;
             price = boxItemPrice.Text;
         }
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
-            style = "Style2";
+            style = "btnEmptyStyle";
             name = String.Empty;
             price = String.Empty;
         }

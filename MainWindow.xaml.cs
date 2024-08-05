@@ -30,8 +30,6 @@ namespace ButtenTest
         {
             InitializeComponent();
             this.DataContext = this;
-            btnItem1.Style = (Style)Application.Current.Resources["Style2"];
-            btnItem2.Style = (Style)Application.Current.Resources["Style2"];
         }
 
         private void btnItem1_Click(object sender, RoutedEventArgs e)
@@ -61,7 +59,7 @@ namespace ButtenTest
                 else
                 {
                     btnItem1.Content = String.Empty;
-                    btnItem1.Style = (Style)Application.Current.Resources["Style2"];
+                    btnItem1.Style = (Style)Application.Current.Resources["btnEmptyStyle"];
                 }
             }
             else
@@ -95,7 +93,7 @@ namespace ButtenTest
                 else
                 {
                     btnItem2.Content = String.Empty;
-                    btnItem2.Style = (Style)Application.Current.Resources["Style2"];
+                    btnItem2.Style = (Style)Application.Current.Resources["btnEmptyStyle"];
                 }
             }
             else
