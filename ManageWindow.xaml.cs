@@ -9,34 +9,27 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Converters;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
 namespace ButtenTest
 {
     /// <summary>
-    /// Interaction logic for Window4.xaml
+    /// Interaction logic for Window3.xaml
     /// </summary>
-    public partial class Window4 : Window
+    public partial class ManageWindow : Window
     {
-        public string userInput;
+        public bool canEditbtn;
 
-        public Window4()
+        public ManageWindow()
         {
             InitializeComponent();
         }
 
-        private void btnOk_Click(object sender, RoutedEventArgs e)
+        private void btnEdit_Click(object sender, RoutedEventArgs e)
         {
-            if (userInput != String.Empty)
-            {
-                userInput = passBox.Text;
-            }
-        }
-
-        private void btnCancel_Click(object sender, RoutedEventArgs e)
-        {
-            userInput = String.Empty;
+            canEditbtn = true;
         }
     }
 }

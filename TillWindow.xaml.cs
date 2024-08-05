@@ -17,7 +17,7 @@ namespace ButtenTest
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class TillWindow : Window
     {
         public bool boolIsEdit { get; set; }
         public bool canEdit;
@@ -26,7 +26,7 @@ namespace ButtenTest
         public string itm2price;
         public string name;
 
-        public MainWindow()
+        public TillWindow()
         {
             InitializeComponent();
             this.DataContext = this;
@@ -42,7 +42,7 @@ namespace ButtenTest
             if (canEdit)
             {
                 canEdit = false;
-                Window2 prompt = new Window2();
+                EnterProductWindow prompt = new EnterProductWindow();
                 prompt.Owner = Application.Current.MainWindow;
                 prompt.WindowStartupLocation = WindowStartupLocation.CenterOwner;
                 prompt.SizeToContent = SizeToContent.WidthAndHeight;
@@ -76,7 +76,7 @@ namespace ButtenTest
             if (canEdit)
             {
                 canEdit = false;
-                Window2 prompt = new Window2();
+                EnterProductWindow prompt = new EnterProductWindow();
                 prompt.Owner = Application.Current.MainWindow;
                 prompt.WindowStartupLocation = WindowStartupLocation.CenterOwner;
                 prompt.SizeToContent = SizeToContent.WidthAndHeight;
@@ -107,7 +107,7 @@ namespace ButtenTest
         }
         private void btnManage_Click(object sender, RoutedEventArgs e)
         {
-            Window4 prompt = new Window4();
+            PasswordWindow prompt = new PasswordWindow();
             prompt.Owner = Application.Current.MainWindow;
             prompt.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             prompt.SizeToContent = SizeToContent.WidthAndHeight;
@@ -122,7 +122,7 @@ namespace ButtenTest
         }
         private void Edit()
         {
-            Window3 prompt = new Window3();
+            ManageWindow prompt = new ManageWindow();
             prompt.Owner = Application.Current.MainWindow;
             prompt.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             prompt.SizeToContent = SizeToContent.WidthAndHeight;
