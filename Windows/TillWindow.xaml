@@ -16,5 +16,11 @@
         <TextBlock x:Name="lblPrice" TextWrapping="Wrap" Text="" Width="100" Height="50" Margin="350,93,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="10,15,0,0" FontWeight="Bold" Grid.ColumnSpan="2" Background="#FFF39F9F"/>
         <ToggleButton x:Name="btnOldToggle" Content="Old Toggle Button" Width="100" Height="100" Margin="50,304,0,0" IsChecked="{Binding boolIsEdit}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1"/>
         <Button x:Name="btnButton" Content="Message" Width="100" Height="100" Margin="500,20,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Click="btnButton_Click"/>
+        <StackPanel x:Name="stackThem2" HorizontalAlignment="Left" Height="245" Margin="480,159,0,0" VerticalAlignment="Top" Width="300">
+        </StackPanel>
+        <StackPanel x:Name="stackThem1" HorizontalAlignment="Left" Height="245" Margin="480,159,0,0" VerticalAlignment="Top" Width="100">
+        </StackPanel>
+        <StackPanel x:Name="stackThem3" HorizontalAlignment="Left" Height="245" Margin="680,159,0,0" VerticalAlignment="Top" Width="100">
+        </StackPanel>
     </Grid>
 </Window>
