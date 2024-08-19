@@ -29,6 +29,8 @@ namespace ButtenTest
         public string itm2price;
         public string name;
 
+        public string newPrice = "40";
+
         //added for stackpanel
         private int total = 0;
 
@@ -147,10 +149,8 @@ namespace ButtenTest
             var btnName = "btn" + count;
             var txtAmount = "txtAmount" + count;
             var txtPrice = "txtPrice" + count;
-            ToggleButton btn = new ToggleButton();
-            TextBlock block1 = new TextBlock();
-            TextBlock block2 = new TextBlock();
 
+            TextBlock block1 = new TextBlock();
             block1.Text = "Amount";
             block1.Name = txtAmount;
             block1.TextAlignment = TextAlignment.Center;
@@ -158,20 +158,21 @@ namespace ButtenTest
             block1.Height = 20;
             block1.Padding = new Thickness(0, 2, 0, 0);
 
-            btn.Content = "Item";
+            ToggleButton btn = new ToggleButton();
+            btn.Content = Convert.ToString(btnButton.Content);
             btn.Name = btnName;
             Debug.WriteLine(btn.Name);
             btn.Checked += btnRemove_Checked;
             btn.BorderThickness = new Thickness(0);
             btn.Height = 20;
 
-            block2.Text = "20";
+            TextBlock block2 = new TextBlock();
+            block2.Text = newPrice;
             block2.Name = txtPrice;
             block2.TextAlignment = TextAlignment.Center;
             block2.IsHitTestVisible = false;
             block2.Height = 20;
             block2.Padding = new Thickness(0, 2, 0, 0);
-
 
 
             stackThem1.Children.Add(block1);
@@ -207,6 +208,7 @@ namespace ButtenTest
                             stackThem2.Children.RemoveAt(i);
                             stackThem1.Children.RemoveAt(i);
                             stackThem3.Children.RemoveAt(i);
+                            tglBut.IsChecked = false;
                             return;
                         }
                     }
