@@ -1,9 +1,11 @@
-﻿using System;
+﻿using ButtenTest.Windows;
+using System;
 using System.Diagnostics.PerformanceData;
 using System.Printing;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -132,6 +134,18 @@ namespace ButtenTest
             {
                 canEdit = true;
             }
+        }
+
+        private void btnButton_Click(object sender, RoutedEventArgs e)
+        {
+            //set location of new window
+            PopWindow popWindow = new PopWindow();
+            popWindow.WindowStyle = WindowStyle.None;
+            popWindow.WindowStartupLocation = WindowStartupLocation.Manual;
+            popWindow.Left = 900;
+            popWindow.Top = 600;
+            popWindow.Show();
+            
         }
     }
 }

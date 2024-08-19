@@ -7,10 +7,6 @@
         Title="TillWindow" Height="450" Width="800"
         WindowStartupLocation="CenterScreen">
     <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Width="800" Height="450">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="111*"/>
-            <ColumnDefinition Width="49*"/>
-        </Grid.ColumnDefinitions>
         <Button Style="{DynamicResource btnEmptyStyle}" x:Name="btnItem1" Content="" Width="100" Height="100" Margin="10,20,0,0" Click="btnItem1_Click" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Button Style="{DynamicResource btnEmptyStyle}" x:Name="btnItem2" Content="" Width="100" Height="100" Margin="10,130,0,0" Click="btnItem2_Click" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Button x:Name="btnManage" Content="Manage" Width="100" Height="100" Margin="125,20,0,0" Click="btnManage_Click" HorizontalAlignment="Left" VerticalAlignment="Top"/>
@@ -19,6 +15,6 @@
         <TextBlock x:Name="lblName" TextWrapping="Wrap" Text="" Width="100" Height="50" Margin="350,44,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="10,15,0,0" FontWeight="Bold" Grid.ColumnSpan="2" Background="#FFF39F9F"/>
         <TextBlock x:Name="lblPrice" TextWrapping="Wrap" Text="" Width="100" Height="50" Margin="350,93,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="10,15,0,0" FontWeight="Bold" Grid.ColumnSpan="2" Background="#FFF39F9F"/>
         <ToggleButton x:Name="btnOldToggle" Content="Old Toggle Button" Width="100" Height="100" Margin="50,304,0,0" IsChecked="{Binding boolIsEdit}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1"/>
-
+        <Button x:Name="btnButton" Content="Message" Width="100" Height="100" Margin="500,20,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Click="btnButton_Click"/>
     </Grid>
 </Window>
