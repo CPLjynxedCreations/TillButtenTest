@@ -1,5 +1,6 @@
 ﻿using ButtenTest.Windows;
 using System;
+using System.Diagnostics;
 using System.Diagnostics.PerformanceData;
 using System.Printing;
 using System.Text;
@@ -141,15 +142,17 @@ namespace ButtenTest
             ToggleButton btn1 = new ToggleButton();
             TextBlock block1 = new TextBlock();
             TextBlock block2 = new TextBlock();
-            block1.Text = "Hello";
+            block1.Text = "Amount";
             block1.TextAlignment = TextAlignment.Center;
             block1.IsHitTestVisible = false;
             block1.Height = 20;
             block1.Padding = new Thickness(0,2,0,0);
-            btn1.Content = "stack it";
+
+            btn1.Content = "Item";
             btn1.BorderThickness = new Thickness(0);
             btn1.Height = 20;
-            block2.Text = "Hello";
+
+            block2.Text = "20";
             block2.TextAlignment = TextAlignment.Center;
             block2.IsHitTestVisible=false;
             block2.Height = 20;
