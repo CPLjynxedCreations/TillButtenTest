@@ -161,7 +161,7 @@ namespace ButtenTest
             btn.Content = "Item";
             btn.Name = btnName;
             Debug.WriteLine(btn.Name);
-            //btn.Checked += btnRemove_Click;
+            btn.Checked += btnRemove_Checked;
             btn.BorderThickness = new Thickness(0);
             btn.Height = 20;
 
@@ -187,6 +187,31 @@ namespace ButtenTest
             popWindow.Top = 600;
             popWindow.Show();
             */
+        }
+        private void btnRemove_Checked(object sender, RoutedEventArgs e)
+        {
+            int count = stackThem2.Children.Count;
+            ToggleButton toggleBut = (ToggleButton)sender;
+            string name = toggleBut.Name;
+            for (int i = 0; i <= count; i++)
+            {
+                //string name = "btn" + i;
+                foreach (UIElement item in stackThem2.Children)
+                {
+                    if (item.GetType() == typeof(ToggleButton))
+                    {
+                        ToggleButton tglBut = (ToggleButton)item;
+                        if (tglBut.Name == name)
+                        {
+                            Debug.WriteLine(tglBut.Name);
+                            stackThem2.Children.RemoveAt(i);
+                            stackThem1.Children.RemoveAt(i);
+                            stackThem3.Children.RemoveAt(i);
+                            return;
+                        }
+                    }
+                }
+            }
         }
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
