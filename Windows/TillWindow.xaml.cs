@@ -29,6 +29,9 @@ namespace ButtenTest
         public string itm2price;
         public string name;
 
+        //added for stackpanel
+        private int total = 0;
+
         public TillWindow()
         {
             InitializeComponent();
@@ -139,27 +142,42 @@ namespace ButtenTest
 
         private void btnButton_Click(object sender, RoutedEventArgs e)
         {
-            ToggleButton btn1 = new ToggleButton();
+            //added new button to stackpanel
+            int count = stackThem2.Children.Count;
+            var btnName = "btn" + count;
+            var txtAmount = "txtAmount" + count;
+            var txtPrice = "txtPrice" + count;
+            ToggleButton btn = new ToggleButton();
             TextBlock block1 = new TextBlock();
             TextBlock block2 = new TextBlock();
+
             block1.Text = "Amount";
+            block1.Name = txtAmount;
             block1.TextAlignment = TextAlignment.Center;
             block1.IsHitTestVisible = false;
             block1.Height = 20;
-            block1.Padding = new Thickness(0,2,0,0);
+            block1.Padding = new Thickness(0, 2, 0, 0);
 
-            btn1.Content = "Item";
-            btn1.BorderThickness = new Thickness(0);
-            btn1.Height = 20;
+            btn.Content = "Item";
+            btn.Name = btnName;
+            Debug.WriteLine(btn.Name);
+            //btn.Checked += btnRemove_Click;
+            btn.BorderThickness = new Thickness(0);
+            btn.Height = 20;
 
             block2.Text = "20";
+            block2.Name = txtPrice;
             block2.TextAlignment = TextAlignment.Center;
-            block2.IsHitTestVisible=false;
+            block2.IsHitTestVisible = false;
             block2.Height = 20;
             block2.Padding = new Thickness(0, 2, 0, 0);
+
+
+
             stackThem1.Children.Add(block1);
-            stackThem2.Children.Add(btn1);
+            stackThem2.Children.Add(btn);
             stackThem3.Children.Add(block2);
+
             /*
             //set location of new window
             PopWindow popWindow = new PopWindow();
@@ -169,6 +187,34 @@ namespace ButtenTest
             popWindow.Top = 600;
             popWindow.Show();
             */
+        }
+
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            //checks for text in textBlock then adds all together
+            int count = stackThem2.Children.Count;
+            string strAmount;
+            int amount;
+
+
+            for (int i = 0; i <= count; i++)
+            {
+                string name = "txtPrice" + i;
+                foreach (UIElement item in stackThem3.Children)
+                {
+                    if (item.GetType() == typeof(TextBlock))
+                    {
+                        TextBlock txtBlock = (TextBlock)item;
+                        if (txtBlock.Name == name)
+                        {
+                            strAmount = txtBlock.Text;
+                            amount = Convert.ToInt32(strAmount);
+                            total = total + amount;
+                        }
+                    }
+                }
+            }
+            Debug.WriteLine(total);
         }
     }
 }
