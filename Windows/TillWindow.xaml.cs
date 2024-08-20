@@ -165,7 +165,6 @@ namespace ButtenTest
 
             Button btnClicked = (Button)sender;
             string btnString = Convert.ToString(btnClicked.Content);
-            Debug.WriteLine(btnString);
 
             ToggleButton btnAdd1 = new ToggleButton();
             btnAdd1.Content = btnString;
@@ -195,8 +194,7 @@ namespace ButtenTest
             {
                 for (int i = 0; i <= count; i++)
                 {
-                    Debug.WriteLine(i);
-
+                    Debug.WriteLine(count);
                     foreach (UIElement item in stackThem2.Children)
                     {
                         if (item.GetType() == typeof(ToggleButton))
@@ -205,9 +203,11 @@ namespace ButtenTest
                             if (tglBut.Content == btnString)
                             {
                                 position = stackThem2.Children.IndexOf(tglBut);
-                                Debug.WriteLine("position " + position);
+                                //runs through the loop and keeps running adding extra
+                                //something to do with naming
                                 getPriceLabel = "txtPrice" + position;
                                 getAmountLabel = "txtAmount" + position;
+                                Debug.WriteLine(getAmountLabel);
                                 foreach (UIElement label in stackThem3.Children)
                                 {
                                     if (label.GetType() == typeof(TextBlock))
@@ -215,6 +215,7 @@ namespace ButtenTest
                                         TextBlock txtPriceLbl = (TextBlock)label;
                                         if (txtPriceLbl.Name == getPriceLabel)
                                         {
+                                            Debug.WriteLine("were in " + getAmountLabel);
                                             string strLinePrice = txtPriceLbl.Text;
                                             int intLinePrice = Convert.ToInt32(strLinePrice);
                                             intLinePrice = intLinePrice + Convert.ToInt32(newPrice);
@@ -246,7 +247,6 @@ namespace ButtenTest
                             else
                             {
                                 setItem = i;
-                                Debug.WriteLine("set " + setItem);
                                 notFound = true;
                             }
                         }
@@ -260,7 +260,7 @@ namespace ButtenTest
                     stackThem1.Children.Add(block1);
                     stackThem2.Children.Add(btnAdd1);
                     stackThem3.Children.Add(block2);
-                    count += 1;
+                    count = count + 1;
                     notFound = false;
                     //return;
                 }
@@ -273,11 +273,7 @@ namespace ButtenTest
                 stackThem1.Children.Add(block1);
                 stackThem2.Children.Add(btnAdd1);
                 stackThem3.Children.Add(block2);
-                count += 1;
-                Debug.WriteLine(btnAdd1.Name);
-                Debug.WriteLine(block1.Name);
-                Debug.WriteLine(block2.Name);
-                Debug.WriteLine("count " + count);
+                count = count + 1;
             }
             /*
             //set location of new window
@@ -291,7 +287,6 @@ namespace ButtenTest
         }
         private void btnRemove_Checked(object sender, RoutedEventArgs e)
         {
-            //int count = stackThem2.Children.Count;
             ToggleButton toggleBut = (ToggleButton)sender;
             string name = toggleBut.Name;
             bool deleted = false;
@@ -312,7 +307,7 @@ namespace ButtenTest
                                 stackThem1.Children.RemoveAt(i);
                                 stackThem3.Children.RemoveAt(i);
                                 toggleBut.IsChecked = false;
-                                count -= 1;
+                                count = count - 1;
                                 deleted = true;
                                 break;
                             }
@@ -333,9 +328,7 @@ namespace ButtenTest
                         ToggleButton tglBut = (ToggleButton)item;
                         if (stackThem2.Children.IndexOf(tglBut) == i)
                         {
-                            tglBut.Name = btnName + i; 
-                        Debug.WriteLine("index " + stackThem2.Children.IndexOf(tglBut));
-                        Debug.WriteLine("new name " + tglBut.Name);
+                            tglBut.Name = btnName + i;
 
                         }
                         //if ()
@@ -349,8 +342,6 @@ namespace ButtenTest
                         if (stackThem1.Children.IndexOf(txtblock) == i)
                         {
                             txtblock.Name = blockName1 + i;
-                            Debug.WriteLine("index " + stackThem1.Children.IndexOf(txtblock));
-                            Debug.WriteLine("new name " + txtblock.Name);
 
                         }
                         //if ()
@@ -364,11 +355,7 @@ namespace ButtenTest
                         if (stackThem3.Children.IndexOf(txtblock) == i)
                         {
                             txtblock.Name = blockName2 + i;
-                            Debug.WriteLine("index " + stackThem1.Children.IndexOf(txtblock));
-                            Debug.WriteLine("new name " + txtblock.Name);
-
                         }
-                        //if ()
                     }
                 }
             }
@@ -376,8 +363,6 @@ namespace ButtenTest
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-            //checks for text in textBlock then adds all together
-            //int count = stackThem2.Children.Count;
             string strAmount;
             int amount;
 
