@@ -15,5 +15,6 @@
         <TextBlock x:Name="lblName" TextWrapping="Wrap" Text="" Width="100" Height="50" Margin="350,44,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="10,15,0,0" FontWeight="Bold" Grid.ColumnSpan="2" Background="#FFF39F9F"/>
         <TextBlock x:Name="lblPrice" TextWrapping="Wrap" Text="" Width="100" Height="50" Margin="350,93,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="10,15,0,0" FontWeight="Bold" Grid.ColumnSpan="2" Background="#FFF39F9F"/>
         <ToggleButton x:Name="btnOldToggle" Content="Old Toggle Button" Width="100" Height="100" Margin="50,304,0,0" IsChecked="{Binding boolIsEdit}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1"/>
+        <Button x:Name="btnWindowPos" Content="OpenPostion" Width="100" Height="100" Margin="615,38,0,0" Click="btnPosWindow_Click" HorizontalAlignment="Left" VerticalAlignment="Top"/>
     </Grid>
 </Window>

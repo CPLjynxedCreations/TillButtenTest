@@ -138,5 +138,17 @@ namespace ButtenTest
             }
         }
 
+        private void btnPosWindow_Click(object sender, RoutedEventArgs e)
+        {
+
+            //set location of new window
+            PopWindow popWindow = new PopWindow();
+            popWindow.WindowStyle = WindowStyle.None;
+            popWindow.WindowStartupLocation = WindowStartupLocation.Manual;
+            popWindow.Left = 900;
+            popWindow.Top = 600;
+            popWindow.Show();
+
+        }
     }
 }
