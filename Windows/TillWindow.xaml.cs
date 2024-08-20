@@ -1,6 +1,7 @@
 ﻿using ButtenTest.Windows;
 using System;
 using System.Diagnostics;
+using System.Diagnostics.Eventing.Reader;
 using System.Diagnostics.PerformanceData;
 using System.Printing;
 using System.Text;
@@ -33,6 +34,7 @@ namespace ButtenTest
 
         //added for stackpanel
         private int total = 0;
+        private int count = 0;
 
         public TillWindow()
         {
@@ -144,27 +146,32 @@ namespace ButtenTest
 
         private void btnButton_Click(object sender, RoutedEventArgs e)
         {
+
             //added new button to stackpanel
-            int count = stackThem2.Children.Count;
-            var btnName = "btn" + count;
+            count = stackThem2.Children.Count;
+            //var btnName = "btn" + count;
+            var btnName = "btn";
+            //var btnString;
             var txtAmount = "txtAmount" + count;
             var txtPrice = "txtPrice" + count;
 
             TextBlock block1 = new TextBlock();
-            block1.Text = "Amount";
+            block1.Text = "1";
             block1.Name = txtAmount;
             block1.TextAlignment = TextAlignment.Center;
             block1.IsHitTestVisible = false;
             block1.Height = 20;
             block1.Padding = new Thickness(0, 2, 0, 0);
 
-            ToggleButton btn = new ToggleButton();
-            btn.Content = Convert.ToString(btnButton.Content);
-            btn.Name = btnName;
-            Debug.WriteLine(btn.Name);
-            btn.Checked += btnRemove_Checked;
-            btn.BorderThickness = new Thickness(0);
-            btn.Height = 20;
+            Button btnClicked = (Button)sender;
+            string btnString = Convert.ToString(btnClicked.Content);
+
+            ToggleButton btnAdd1 = new ToggleButton();
+            btnAdd1.Content = btnString;
+            btnAdd1.Name = btnName;
+            btnAdd1.Checked += btnRemove_Checked;
+            btnAdd1.BorderThickness = new Thickness(0);
+            btnAdd1.Height = 20;
 
             TextBlock block2 = new TextBlock();
             block2.Text = newPrice;
@@ -175,10 +182,81 @@ namespace ButtenTest
             block2.Padding = new Thickness(0, 2, 0, 0);
 
 
-            stackThem1.Children.Add(block1);
-            stackThem2.Children.Add(btn);
-            stackThem3.Children.Add(block2);
 
+            //ToggleButton toggleBut = (ToggleButton)sender;
+            bool notFound = false;
+            int position = 0;
+            string getAmountLabel;
+            string getPriceLabel;
+
+            if (count > 0)
+            {
+                for (int i = 0; i <= count; i++)
+                {
+                    foreach (UIElement item in stackThem2.Children)
+                    {
+                        if (item.GetType() == typeof(ToggleButton))
+                        {
+                            ToggleButton tglBut = (ToggleButton)item;
+                            if (tglBut.Content == btnString)
+                            {
+                                position = stackThem2.Children.IndexOf(tglBut);
+                                getPriceLabel = "txtPrice" + position;
+                                getAmountLabel = "txtAmount" + position;
+                                foreach (UIElement label in stackThem3.Children)
+                                {
+                                    if (label.GetType() == typeof(TextBlock))
+                                    {
+                                        TextBlock txtPriceLbl = (TextBlock)label;
+                                        if (txtPriceLbl.Name == getPriceLabel)
+                                        {
+                                            string strLinePrice = txtPriceLbl.Text;
+                                            int intLinePrice = Convert.ToInt32(strLinePrice);
+                                            intLinePrice = intLinePrice + Convert.ToInt32(newPrice);
+                                            strLinePrice = Convert.ToString(intLinePrice);
+                                            txtPriceLbl.Text = strLinePrice;
+                                        }
+                                    }
+                                }
+                                foreach (UIElement label in stackThem1.Children)
+                                {
+                                    if (label.GetType() == typeof(TextBlock))
+                                    {
+                                        TextBlock txtAmountLbl = (TextBlock)label;
+                                        if (txtAmountLbl.Name == getAmountLabel)
+                                        {
+                                            string strLineAmount = txtAmountLbl.Text;
+                                            int intLineAmount = Convert.ToInt32(strLineAmount);
+                                            intLineAmount = intLineAmount + 1;
+                                            strLineAmount = Convert.ToString(intLineAmount);
+                                            txtAmountLbl.Text = strLineAmount;
+                                        }
+                                    }
+                                }
+                                notFound = false;
+                                return;
+                            }
+                            else
+                            {
+                                notFound = true;
+                            }
+                        }
+                    }
+                }
+                if (notFound)
+                {
+                    stackThem1.Children.Add(block1);
+                    stackThem2.Children.Add(btnAdd1);
+                    stackThem3.Children.Add(block2);
+                }
+            }
+            else
+            {
+                stackThem1.Children.Add(block1);
+                stackThem2.Children.Add(btnAdd1);
+                btnAdd1.Name = btnName + 0;
+                stackThem3.Children.Add(block2);
+            }
             /*
             //set location of new window
             PopWindow popWindow = new PopWindow();
@@ -191,7 +269,7 @@ namespace ButtenTest
         }
         private void btnRemove_Checked(object sender, RoutedEventArgs e)
         {
-            int count = stackThem2.Children.Count;
+            count = stackThem2.Children.Count;
             ToggleButton toggleBut = (ToggleButton)sender;
             string name = toggleBut.Name;
             for (int i = 0; i <= count; i++)
@@ -201,14 +279,14 @@ namespace ButtenTest
                 {
                     if (item.GetType() == typeof(ToggleButton))
                     {
-                        ToggleButton tglBut = (ToggleButton)item;
-                        if (tglBut.Name == name)
+                        //ToggleButton tglBut = (ToggleButton)item;
+                        if (toggleBut.Name == name)
                         {
-                            Debug.WriteLine(tglBut.Name);
                             stackThem2.Children.RemoveAt(i);
                             stackThem1.Children.RemoveAt(i);
                             stackThem3.Children.RemoveAt(i);
-                            tglBut.IsChecked = false;
+                            toggleBut.IsChecked = false;
+                            count -= 1;
                             return;
                         }
                     }
