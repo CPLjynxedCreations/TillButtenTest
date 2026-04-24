@@ -1,8 +1,0 @@
-add toggle for amount and price on each side of the toggle button products
-use number text to add more than one amount of the product at a time 
-when product toggle is selected make it select the amount and price
-add minus button to deduct quantity from toggled
-add clear button to clear toggled item
-when item is cleared shift products, price and amounts up
-once clear is selected look for empty space and make the epmty space equal the next item. 
-if item is null return. 
